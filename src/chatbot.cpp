@@ -64,10 +64,12 @@ ChatBot::ChatBot(ChatBot &&source){
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 
-    source._image = nullptr;
+    source._image = NULL;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
     source._currentNode = nullptr;
+
+    _chatLogic->SetChatbotHandle(this);
 }
 
 //move assignment operator
@@ -81,10 +83,12 @@ ChatBot& ChatBot::operator=(ChatBot &&source){
     _rootNode = source._rootNode;
     _currentNode = source._currentNode;
 
-    source._image = nullptr;
+    source._image = NULL;
     source._chatLogic = nullptr;
     source._rootNode = nullptr;
     source._currentNode = nullptr;
+
+    _chatLogic->SetChatbotHandle(this);
 
     return *this;
 }
